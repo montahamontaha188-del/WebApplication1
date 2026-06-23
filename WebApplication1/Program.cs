@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 
+
 builder.Services.AddDbContext<AppDbContaxt>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("mycon")));
  
 builder.Services.AddOpenApi();

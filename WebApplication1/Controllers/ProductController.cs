@@ -90,6 +90,19 @@ namespace WebApplication1.Controllers
             await _db.SaveChangesAsync();
             return Ok(c);
         }
+        [HttpGet("totals")]
+        public IActionResult GetCategoryTotals()
+        {
+            var report = _db.Products
+                .GroupBy(p => p.Category)  
+                .Select(g => new {
+                    CategoryName = g.Key.ToString(),
+                    TotalValue = g.Sum(p => p.Price * p.quaintity)   
+                })
+                .ToList();
+
+            return Ok(report);
+        }
 
 
     }

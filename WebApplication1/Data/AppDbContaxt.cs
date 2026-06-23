@@ -12,6 +12,12 @@ namespace WebApplication1.Data
         }
 
         public DbSet<Products> Products {get; set; }
- 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Products>()
+                .Property(p => p.Category)
+                .HasConversion<string>();
+        }
+
     }
 }
