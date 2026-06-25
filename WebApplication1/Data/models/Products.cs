@@ -21,9 +21,13 @@ namespace WebApplication1.Data.models
         public string Name { get; set; }
         public double Price { get; set; }
         public int quaintity { get; set; }
-        [JsonConverter(typeof(JsonStringEnumConverter))]
+ 
         public Category Category { get; set; }
-    
+
+        [ForeignKey("Customer")]
+        public int? CustomerId { get; set; }
+        public Customers? Customer { get; set; }
+
 
     }
 }

@@ -12,6 +12,7 @@ namespace WebApplication1.Data
         }
 
         public DbSet<Products> Products {get; set; }
+        public DbSet<Customers> Customers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Products>()

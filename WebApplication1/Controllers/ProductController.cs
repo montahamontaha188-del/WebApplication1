@@ -91,7 +91,7 @@ namespace WebApplication1.Controllers
             return Ok(c);
         }
         [HttpGet("totals")]
-        public IActionResult GetCategoryTotals()
+        public async Task<IActionResult> GetCategoryTotals()
         {
             var report = _db.Products
                 .GroupBy(p => p.Category)  
